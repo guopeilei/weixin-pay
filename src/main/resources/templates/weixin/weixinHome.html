@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>微信支付</title>
+</head>
+<body>
+<script type="text/javascript">
+    function submitForm(){
+        $('#ff').form('submit',{
+            onSubmit:function(){
+                return $(this).form('enableValidation').form('validate');
+            }
+        });
+    }
+    function clearForm(){
+        $('#ff').form('clear');
+    }
+</script>
+    <div class="easyui-panel" title="微信支付" style="width:100%;max-width:400px;padding:30px 60px;">
+        <form id="ff" method="post" action="/pay/getPayWxqrcode">
+            <div>
+                <label>付款金额：</label>
+                <input name="payAmount" class="easyui-textbox" data-options="iconCls:'icon-edit'" style="width:300px">
+            </div>
+        </form>
+        <div style="text-align:center;padding:5px 0">
+            <a href="javascript:void(0)" class="easyui-linkbutton" onclick="submitForm()" style="width:80px">Submit</a>
+            <a href="javascript:void(0)" class="easyui-linkbutton" onclick="clearForm()" style="width:80px">Clear</a>
+        </div>
+    </div>
+
+</body>
+</html>
